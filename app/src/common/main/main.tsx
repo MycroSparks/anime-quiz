@@ -1,19 +1,18 @@
-import React from "react";
-import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { View } from "react-native";
+import { Question } from "../question";
 
 export const Main: React.FC = () => {
+  const question = {
+    text: 'Who is the main protagonist of the anime "Naruto"?',
+    answers: ["Luffy", "Natsu Dragneel", "Naruto", "Eren Yeager"],
+    correctAnswerIndex: 2,
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, backgroundColor: "#aff" }}>
+      <Question questions={[question]}></Question>
     </View>
   );
 };
