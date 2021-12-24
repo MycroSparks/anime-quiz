@@ -31,10 +31,12 @@ export const ChoiceButtons: React.FC<Props> = ({
         <Button
           key={answer}
           color={
-            guessedIndex !== undefined && correctAnswerIndex === index
-              ? "green"
-              : guessedIndex !== undefined
-              ? "red"
+            guessedIndex !== undefined
+              ? correctAnswerIndex === index
+                ? "green"
+                : guessedIndex === index
+                ? "red"
+                : undefined
               : undefined
           }
           compact
