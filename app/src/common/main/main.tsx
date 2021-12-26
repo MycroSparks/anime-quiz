@@ -1,8 +1,10 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { ImageBackground, View } from "react-native";
 import { Questions } from "../questions";
 
 export const Main: React.FC = () => {
+  const [quizFinished, setQuizFinished] = useState<boolean>(false);
+
   const questions = [
     {
       text: 'Who is the main protagonist of the anime "Naruto"?',
@@ -17,8 +19,19 @@ export const Main: React.FC = () => {
   ];
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#aff" }}>
-      <Questions questions={questions}></Questions>
-    </View>
+    <ImageBackground
+      source={require("../../assets/hisoka__hunter_x_hunter__minimalist_wallpaper_by_greenmapple17-d8imij3.png")}
+      style={{ flex: 1, backgroundColor: "#aff" }}
+      resizeMode="stretch"
+    >
+      {!quizFinished ? (
+        <Questions
+          questions={questions}
+          onFinish={() => {
+            setQuizFinished(true);
+          }}
+        ></Questions>
+      ) : null}
+    </ImageBackground>
   );
 };

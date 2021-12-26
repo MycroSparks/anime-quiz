@@ -4,10 +4,15 @@ import { Headline } from "react-native-paper";
 import { ChoiceButtons } from "./choice-buttons";
 
 interface Props {
-  questions: { text: string; answers: string[]; correctAnswerIndex: number }[];
+  questions: {
+    text: string;
+    answers: string[];
+    correctAnswerIndex: number;
+  }[];
+  onFinish?: () => void;
 }
 
-export const Questions: React.FC<Props> = ({ questions }) => {
+export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
   const currentQuestion = useMemo(
@@ -19,6 +24,10 @@ export const Questions: React.FC<Props> = ({ questions }) => {
     setTimeout(() => {
       if (questions.length > currentQuestionIndex + 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
+        return;
+      }
+      if (onFinish) {
+        onFinish();
       }
     }, 5000);
   };
@@ -26,10 +35,7 @@ export const Questions: React.FC<Props> = ({ questions }) => {
   useEffect(() => {}, []);
 
   return (
-    <ImageBackground
-      source={{
-        uri: undefined,
-      }}
+    <View
       key={currentQuestion.text}
       style={{
         flex: 1,
@@ -38,8 +44,10 @@ export const Questions: React.FC<Props> = ({ questions }) => {
         paddingVertical: 30,
       }}
     >
-      <View style={{ flex: 2, marginBottom: 20, justifyContent: "center" }}>
-        <Headline style={{ textAlign: "center" }}>
+      <View style={{ flex: 2, marginBottom: 20, marginTop: 80 }}>
+        <Headline
+          style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
+        >
           {currentQuestion.text}
         </Headline>
       </View>
@@ -57,6 +65,6 @@ export const Questions: React.FC<Props> = ({ questions }) => {
           correctAnswerIndex={currentQuestion.correctAnswerIndex}
         ></ChoiceButtons>
       </View>
-    </ImageBackground>
+    </View>
   );
 };
