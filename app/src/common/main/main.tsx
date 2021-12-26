@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { ImageBackground, View } from "react-native";
+import { Headline } from "react-native-paper";
+import { useAppContext } from "../../core/app-context/app-context.hook";
 import { EndScreen } from "../end-screen/end-screen.component";
 import { Questions } from "../questions";
+import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { StartScreen } from "../start-screen/start-screen.component";
 
 export const Main: React.FC = () => {
   const [quizFinished, setQuizFinished] = useState<boolean>(false);
+  const [quizStarted, setQuizStarted] = useState<boolean>(false);
+
+  const { points, setCorrectGuesses } = useAppContext();
 
   return (
     <ImageBackground
@@ -12,7 +19,30 @@ export const Main: React.FC = () => {
       style={{ flex: 1, backgroundColor: "#aff" }}
       resizeMode="stretch"
     >
-      {!quizFinished ? (
+      <View
+        style={{
+          position: "absolute",
+          right: 8,
+          top: 30,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Headline
+          style={{ color: "white", marginRight: 2, fontWeight: "bold" }}
+        >
+          {points}
+        </Headline>
+        <MaterialIcons size={32} color={"orange"} name="star"></MaterialIcons>
+      </View>
+      {!quizStarted ? (
+        <StartScreen
+          onStart={() => {
+            setQuizStarted(true);
+          }}
+        ></StartScreen>
+      ) : !quizFinished ? (
         <Questions
           questions={questions}
           onFinish={() => {
@@ -20,7 +50,14 @@ export const Main: React.FC = () => {
           }}
         />
       ) : (
-        <EndScreen onRestart={() => setQuizFinished(false)} />
+        <EndScreen
+          onConfirm={() => {
+            setQuizFinished(false);
+            setQuizStarted(false);
+            setCorrectGuesses(0);
+          }}
+          totalQuestions={questions.length}
+        />
       )}
     </ImageBackground>
   );
@@ -29,13 +66,13 @@ export const Main: React.FC = () => {
 const questions = [
   {
     text: 'Who is the main protagonist of the anime "Naruto"?',
-    answers: ["Luffy", "Natsu Dragneel", "Naruto", "Eren Yeager"],
-    correctAnswerIndex: 2,
+    answers: ["Luffy", "Natsu Dragneel", "Eren Yeager", "Naruto"],
+    correctAnswerIndex: 3,
   },
   {
     text: "Where does animate originate from?",
     answers: ["Japan", "China", "Pakistan", "The Moon"],
-    correctAnswerIndex: 0,
+    correctAnswerIndex: 2,
   },
   {
     text: "Which of these pokemon is a fire type?",
