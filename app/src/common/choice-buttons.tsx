@@ -36,8 +36,8 @@ export const ChoiceButtons: React.FC<Props> = ({
                 ? "green"
                 : guessedIndex === index
                 ? "red"
-                : undefined
-              : undefined
+                : "black"
+              : "black"
           }
           compact
           style={{

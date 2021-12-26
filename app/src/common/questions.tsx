@@ -29,7 +29,7 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
       if (onFinish) {
         onFinish();
       }
-    }, 5000);
+    }, 2000);
   };
 
   useEffect(() => {}, []);
