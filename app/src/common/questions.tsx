@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { ImageBackground, View } from "react-native";
 import { Headline } from "react-native-paper";
+import { useAppContext } from "../core/app-context/app-context.hook";
 import { ChoiceButtons } from "./choice-buttons";
 
 interface Props {
@@ -14,6 +15,9 @@ interface Props {
 
 export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+
+  const { correctGuesses, setCorrectGuesses, points, setPoints } =
+    useAppContext();
 
   const currentQuestion = useMemo(
     () => questions[currentQuestionIndex],
@@ -29,7 +33,7 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
       if (onFinish) {
         onFinish();
       }
-    }, 2000);
+    }, 1000);
   };
 
   useEffect(() => {}, []);
@@ -60,6 +64,10 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
         <ChoiceButtons
           answers={currentQuestion.answers}
           onPick={(correctGuess) => {
+            if (correctGuess) {
+              setCorrectGuesses(correctGuesses + 1);
+              setPoints(points + 1);
+            }
             nextQuestion();
           }}
           correctAnswerIndex={currentQuestion.correctAnswerIndex}
