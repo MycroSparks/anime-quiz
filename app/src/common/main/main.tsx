@@ -3,7 +3,7 @@ import { ImageBackground, View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../../core/app-context/app-context.hook";
 import { EndScreen } from "../end-screen/end-screen.component";
-import { Questions } from "../questions";
+import { Question, Questions } from "../questions";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { StartScreen } from "../start-screen/start-screen.component";
 
@@ -63,40 +63,50 @@ export const Main: React.FC = () => {
   );
 };
 
-const questions = [
+const questions: Question[] = [
   {
     text: 'Who is the main protagonist of the anime "Naruto"?',
-    answers: ["Luffy", "Natsu Dragneel", "Eren Yeager", "Naruto"],
-    correctAnswerIndex: 3,
+    answers: [
+      { text: "Luffy" },
+      { text: "Natsu Dragneel" },
+      { text: "Eren Yeager" },
+      { text: "Naruto", correct: true },
+    ],
   },
   {
     text: "Where does animate originate from?",
-    answers: ["Japan", "China", "Pakistan", "The Moon"],
-    correctAnswerIndex: 2,
+    answers: [
+      { text: "Japan", correct: true },
+      { text: "China" },
+      { text: "Pakistan" },
+      { text: "The Moon" },
+    ],
   },
   {
     text: "Which of these pokemon is a fire type?",
-    answers: ["Lickitung", "Muk", "Rapidash", "Paras"],
-    correctAnswerIndex: 2,
+    answers: [
+      { text: "Lickitung" },
+      { text: "Muk" },
+      { text: "Rapidash", correct: true },
+      { text: "Paras" },
+    ],
   },
   {
     text: `Who is the creator of the "Jojo's Bizzare Adventure" manga?`,
     answers: [
-      "Masashi Kishimoto",
-      "Hirohiko Araki",
-      "Hajime Isayama",
-      "Yoshihiro Togashi",
+      { text: "Masashi Kishimoto" },
+      { text: "Hirohiko Araki", correct: true },
+      { text: "Hajime Isayama" },
+      { text: "Yoshihiro Togashi" },
     ],
-    correctAnswerIndex: 1,
   },
   {
     text: "Which of these anime came out first?",
     answers: [
-      "Hajime no Ippo",
-      "Yu Yu Hakusho",
-      "Digimon Adventure",
-      "Dragon ball",
+      { text: "Hajime no Ippo" },
+      { text: "Yu Yu Hakusho" },
+      { text: "Digimon Adventure" },
+      { text: "Dragon ball", correct: true },
     ],
-    correctAnswerIndex: 3,
   },
 ];

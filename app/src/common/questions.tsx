@@ -4,12 +4,18 @@ import { Headline } from "react-native-paper";
 import { useAppContext } from "../core/app-context/app-context.hook";
 import { ChoiceButtons } from "./choice-buttons";
 
+export interface Answer {
+  text: string;
+  correct?: boolean;
+}
+
+export interface Question {
+  text: string;
+  answers: Answer[];
+}
+
 interface Props {
-  questions: {
-    text: string;
-    answers: string[];
-    correctAnswerIndex: number;
-  }[];
+  questions: Question[];
   onFinish?: () => void;
 }
 
@@ -70,7 +76,6 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
             }
             nextQuestion();
           }}
-          correctAnswerIndex={currentQuestion.correctAnswerIndex}
         ></ChoiceButtons>
       </View>
     </View>

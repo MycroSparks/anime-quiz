@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
+import { Answer } from "./questions";
 
 interface Props {
-  answers: string[];
+  answers: Answer[];
   onPick: (correctGuess: boolean) => void;
-  correctAnswerIndex: number;
 }
 
-export const ChoiceButtons: React.FC<Props> = ({
-  answers,
-  onPick,
-  correctAnswerIndex,
-}) => {
+export const ChoiceButtons: React.FC<Props> = ({ answers, onPick }) => {
   const [guessedIndex, setGuessedIndex] = useState<number | undefined>(
     undefined
   );
@@ -29,10 +25,10 @@ export const ChoiceButtons: React.FC<Props> = ({
     >
       {answers.map((answer, index) => (
         <Button
-          key={answer}
+          key={answer.text}
           color={
             guessedIndex !== undefined
-              ? correctAnswerIndex === index
+              ? answer.correct
                 ? "green"
                 : guessedIndex === index
                 ? "red"
@@ -47,12 +43,12 @@ export const ChoiceButtons: React.FC<Props> = ({
           mode="contained"
           onPress={() => {
             if (guessedIndex === undefined) {
-              onPick(index === correctAnswerIndex);
+              onPick(!!answer.correct);
               setGuessedIndex(index);
             }
           }}
         >
-          {answer}
+          {answer.text}
         </Button>
       ))}
     </View>
