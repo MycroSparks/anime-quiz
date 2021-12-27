@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { ImageBackground, View } from "react-native";
+import React, { useEffect, useMemo, useState } from "react";
+import { View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../core/app-context/app-context.hook";
 import { ChoiceButtons } from "./choice-buttons";
@@ -45,10 +45,10 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
         flex: 1,
         alignItems: "center",
         display: "flex",
-        paddingVertical: 30,
+        paddingBottom: 30,
       }}
     >
-      <View style={{ flex: 2, marginBottom: 20, marginTop: 80 }}>
+      <View style={{ flex: 2, marginTop: 80 }}>
         <Headline
           style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
         >
