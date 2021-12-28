@@ -16,11 +16,8 @@ export const ChoiceButtons: React.FC<Props> = ({ answers, onPick }) => {
   return (
     <View
       style={{
-        width: "100%",
         display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: "column",
       }}
     >
       {answers.map((answer, index) => (
@@ -35,10 +32,9 @@ export const ChoiceButtons: React.FC<Props> = ({ answers, onPick }) => {
                 : "black"
               : "black"
           }
-          compact
           style={{
-            width: "44%",
-            margin: 10,
+            marginVertical: 10,
+            marginHorizontal: 20,
           }}
           mode="contained"
           onPress={() => {

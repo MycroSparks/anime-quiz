@@ -29,7 +29,7 @@ export const Main: React.FC = () => {
   return (
     <ImageBackground
       source={require("../../assets/hisoka__hunter_x_hunter__minimalist_wallpaper_by_greenmapple17-d8imij3.png")}
-      style={{ flex: 1, backgroundColor: "#aff" }}
+      style={{ flex: 1, backgroundColor: "#aff", paddingBottom: 40 }}
       resizeMode="stretch"
     >
       <View

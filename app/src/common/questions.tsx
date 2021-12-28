@@ -42,10 +42,9 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
         flex: 1,
         alignItems: "center",
         display: "flex",
-        paddingBottom: 30,
       }}
     >
-      <View style={{ flex: 2, marginTop: 80 }}>
+      <View style={{ flex: 2, marginTop: 80, marginHorizontal: 20 }}>
         <Headline
           style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
         >
@@ -55,6 +54,7 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
       <View
         style={{
           flex: 1,
+          width: "100%",
           justifyContent: "center",
         }}
       >
