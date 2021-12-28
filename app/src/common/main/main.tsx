@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { ImageBackground, View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../../core/app-context/app-context.hook";
 import { EndScreen } from "../end-screen/end-screen.component";
-import { Question, Questions } from "../questions";
+import { Questions } from "../questions";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { StartScreen } from "../start-screen/start-screen.component";
+import { shuffle } from "../../core/global/question/question.util";
+import { questions } from "../../core/global/question/question.constant";
 
 export const Main: React.FC = () => {
   const [quizFinished, setQuizFinished] = useState<boolean>(false);
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
 
+  const totalQuestions = 5;
+
   const { points, setCorrectGuesses } = useAppContext();
+
+  const quizQuestions = useMemo(() => {
+    return shuffle(
+      questions.slice(0, totalQuestions).map((question) => ({
+        ...question,
+        answers: shuffle(question.answers),
+      }))
+    );
+  }, [questions, quizFinished]);
 
   return (
     <ImageBackground
@@ -44,7 +57,7 @@ export const Main: React.FC = () => {
         ></StartScreen>
       ) : !quizFinished ? (
         <Questions
-          questions={questions}
+          questions={quizQuestions}
           onFinish={() => {
             setQuizFinished(true);
           }}
@@ -56,57 +69,9 @@ export const Main: React.FC = () => {
             setQuizStarted(false);
             setCorrectGuesses(0);
           }}
-          totalQuestions={questions.length}
+          totalQuestions={totalQuestions}
         />
       )}
     </ImageBackground>
   );
 };
-
-const questions: Question[] = [
-  {
-    text: 'Who is the main protagonist of the anime "Naruto"?',
-    answers: [
-      { text: "Luffy" },
-      { text: "Natsu Dragneel" },
-      { text: "Eren Yeager" },
-      { text: "Naruto", correct: true },
-    ],
-  },
-  {
-    text: "Where does animate originate from?",
-    answers: [
-      { text: "Japan", correct: true },
-      { text: "China" },
-      { text: "Pakistan" },
-      { text: "The Moon" },
-    ],
-  },
-  {
-    text: "Which of these pokemon is a fire type?",
-    answers: [
-      { text: "Lickitung" },
-      { text: "Muk" },
-      { text: "Rapidash", correct: true },
-      { text: "Paras" },
-    ],
-  },
-  {
-    text: `Who is the creator of the "Jojo's Bizzare Adventure" manga?`,
-    answers: [
-      { text: "Masashi Kishimoto" },
-      { text: "Hirohiko Araki", correct: true },
-      { text: "Hajime Isayama" },
-      { text: "Yoshihiro Togashi" },
-    ],
-  },
-  {
-    text: "Which of these anime came out first?",
-    answers: [
-      { text: "Hajime no Ippo" },
-      { text: "Yu Yu Hakusho" },
-      { text: "Digimon Adventure" },
-      { text: "Dragon ball", correct: true },
-    ],
-  },
-];

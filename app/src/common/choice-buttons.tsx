@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
-import { Answer } from "./questions";
+import { Answer } from "../core/global/question/question.constant";
 
 interface Props {
   answers: Answer[];
