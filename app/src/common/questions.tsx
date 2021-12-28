@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../core/app-context/app-context.hook";
@@ -33,8 +33,6 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
     }, 1000);
   };
 
-  useEffect(() => {}, []);
-
   return (
     <View
       key={currentQuestion.text}
@@ -44,10 +42,8 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
         display: "flex",
       }}
     >
-      <View style={{ flex: 2, marginTop: 80, marginHorizontal: 20 }}>
-        <Headline
-          style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
-        >
+      <View style={{ flex: 2, marginHorizontal: 20 }}>
+        <Headline style={{ textAlign: "center", fontWeight: "bold" }}>
           {currentQuestion.text}
         </Headline>
       </View>

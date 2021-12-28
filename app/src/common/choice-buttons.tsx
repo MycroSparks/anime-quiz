@@ -29,8 +29,8 @@ export const ChoiceButtons: React.FC<Props> = ({ answers, onPick }) => {
                 ? "green"
                 : guessedIndex === index
                 ? "red"
-                : "black"
-              : "black"
+                : undefined
+              : undefined
           }
           style={{
             marginVertical: 10,

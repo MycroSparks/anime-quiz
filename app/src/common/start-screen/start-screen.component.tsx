@@ -9,17 +9,16 @@ interface Props {
 export const StartScreen: React.FC<Props> = ({ onStart }) => {
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 2, alignItems: "center", marginTop: 80 }}>
-        <Headline style={{ color: "white", fontWeight: "bold" }}>
+      <View style={{ flex: 2, alignItems: "center" }}>
+        <Headline style={{ textAlign: "center", fontWeight: "bold" }}>
           Anime Quiz
         </Headline>
       </View>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1, justifyContent: "center" }}>
         <Button
-          style={{ width: "80%" }}
+          style={{ marginHorizontal: 20 }}
           mode="contained"
           onPress={onStart}
-          color={"black"}
         >
           Start
         </Button>

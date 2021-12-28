@@ -13,8 +13,8 @@ export const EndScreen: React.FC<Props> = ({ onConfirm, totalQuestions }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 2, alignItems: "center", marginTop: 80 }}>
-        <Headline style={{ color: "white", fontWeight: "bold" }}>
+      <View style={{ flex: 2, alignItems: "center" }}>
+        <Headline style={{ textAlign: "center", fontWeight: "bold" }}>
           You got {correctGuesses} out of {totalQuestions} questions right!
         </Headline>
       </View>
@@ -22,14 +22,12 @@ export const EndScreen: React.FC<Props> = ({ onConfirm, totalQuestions }) => {
         style={{
           flex: 1,
           justifyContent: "center",
-          alignItems: "center",
         }}
       >
         <Button
-          style={{ width: "80%" }}
+          style={{ marginHorizontal: 20 }}
           onPress={onConfirm}
           mode="contained"
-          color="black"
         >
           Ok
         </Button>
