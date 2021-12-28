@@ -2,17 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../core/app-context/app-context.hook";
+import { Question } from "../core/global/question/question.constant";
 import { ChoiceButtons } from "./choice-buttons";
-
-export interface Answer {
-  text: string;
-  correct?: boolean;
-}
-
-export interface Question {
-  text: string;
-  answers: Answer[];
-}
 
 interface Props {
   questions: Question[];
