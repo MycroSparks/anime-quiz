@@ -13,7 +13,7 @@ export const QuestionAmountSelector: React.FC<Props> = ({
 }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", display: "flex" }}>
-      <View style={{ flex: 2, marginHorizontal: 20 }}>
+      <View style={{ flex: 1, marginHorizontal: 20 }}>
         <Headline style={{ textAlign: "center", fontWeight: "bold" }}>
           Number of questions
         </Headline>
@@ -25,9 +25,9 @@ export const QuestionAmountSelector: React.FC<Props> = ({
           justifyContent: "center",
         }}
       >
-        {options.map((option) => (
+        {options.map((option, index) => (
           <Button
-            key={option}
+            key={index}
             style={{
               marginVertical: 10,
               marginHorizontal: 20,
