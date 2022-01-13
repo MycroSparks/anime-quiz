@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { BackHandler, View } from "react-native";
 import { Button, Headline } from "react-native-paper";
 
 interface Props {
@@ -16,11 +16,18 @@ export const StartScreen: React.FC<Props> = ({ onStart }) => {
       </View>
       <View style={{ flex: 1, justifyContent: "center" }}>
         <Button
-          style={{ marginHorizontal: 20 }}
+          style={{ marginHorizontal: 20, marginVertical: 10 }}
           mode="contained"
           onPress={onStart}
         >
           Start
+        </Button>
+        <Button
+          style={{ marginHorizontal: 20, marginVertical: 10 }}
+          mode="contained"
+          onPress={() => BackHandler.exitApp()}
+        >
+          Quit
         </Button>
       </View>
     </View>

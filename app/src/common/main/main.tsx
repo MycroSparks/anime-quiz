@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { ImageBackground, View } from "react-native";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { BackHandler, ImageBackground, View } from "react-native";
 import { Headline } from "react-native-paper";
 import { useAppContext } from "../../core/app-context/app-context.hook";
 import { EndScreen } from "../end-screen/end-screen.component";
@@ -44,6 +44,35 @@ export const Main: React.FC = () => {
     }
     return [];
   }, [questions, quizPhase]);
+
+  useEffect(() => {
+    const subscriber = BackHandler.addEventListener("hardwareBackPress", () => {
+      let newPhase = QuizPhase.MainMenu;
+      console.log(quizPhase);
+      switch (quizPhase) {
+        case QuizPhase.QuestionAmountPick:
+          newPhase = QuizPhase.MainMenu;
+          break;
+        case QuizPhase.Started:
+          newPhase = QuizPhase.MainMenu;
+          break;
+        case QuizPhase.Finished:
+          newPhase = QuizPhase.MainMenu;
+          break;
+        case QuizPhase.MainMenu:
+          console.log("fafasat");
+          BackHandler.exitApp();
+          break;
+      }
+
+      setQuizPhase(newPhase);
+      return true;
+    });
+
+    return () => {
+      subscriber.remove();
+    };
+  }, [quizPhase]);
 
   useEffect(() => {
     const selectedBackground = backgrounds[backgroundIndex];

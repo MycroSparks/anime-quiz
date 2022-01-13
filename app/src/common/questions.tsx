@@ -22,7 +22,7 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
   );
 
   const nextQuestion = () => {
-    setTimeout(() => {
+    const timeoutRef = setTimeout(() => {
       if (questions.length > currentQuestionIndex + 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         return;
@@ -31,6 +31,9 @@ export const Questions: React.FC<Props> = ({ questions, onFinish }) => {
         onFinish();
       }
     }, 1000);
+    return () => {
+      clearTimeout(timeoutRef);
+    };
   };
 
   return (
