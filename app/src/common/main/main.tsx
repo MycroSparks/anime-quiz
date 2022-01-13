@@ -7,27 +7,43 @@ import { Questions } from "../questions";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { StartScreen } from "../start-screen/start-screen.component";
 import { shuffle } from "../../core/global/question/question.util";
-import { questions } from "../../core/global/question/question.constant";
+import {
+  Question,
+  questions,
+} from "../../core/global/question/question.constant";
+import { QuestionAmountSelector } from "../questionAmountSelector";
+
+enum QuizPhase {
+  MainMenu = "MainMenu",
+  QuestionAmountPick = "QuestionAmountPick",
+  Finished = "Finished",
+  Started = "Started",
+}
 
 export const Main: React.FC = () => {
-  const [quizFinished, setQuizFinished] = useState<boolean>(false);
-  const [quizStarted, setQuizStarted] = useState<boolean>(false);
+  const [quizPhase, setQuizPhase] = useState<QuizPhase>(QuizPhase.MainMenu);
+  const [questionAmount, setQuestionAmount] = useState<number>(0);
   const [backgroundIndex, setBackgroundIndex] = useState(
     Math.floor(Math.random() * backgrounds.length)
   );
 
-  const totalQuestions = 5;
+  const [actualQuestionAmount, setActualQuestionAmount] = useState<number>(0);
 
   const { points, setCorrectGuesses, updateTheme } = useAppContext();
 
-  const quizQuestions = useMemo(() => {
-    return shuffle(
-      questions.slice(0, totalQuestions).map((question) => ({
-        ...question,
-        answers: shuffle(question.answers),
-      }))
-    );
-  }, [questions, quizFinished]);
+  const quizQuestions: Question[] = useMemo(() => {
+    if (quizPhase === QuizPhase.Started) {
+      const shuffledQuestions = shuffle(questions)
+        .slice(0, questionAmount)
+        .map((question) => ({
+          ...question,
+          answers: shuffle(question.answers),
+        }));
+      setActualQuestionAmount(shuffledQuestions.length);
+      return shuffledQuestions;
+    }
+    return [];
+  }, [questions, quizPhase]);
 
   useEffect(() => {
     const selectedBackground = backgrounds[backgroundIndex];
@@ -41,10 +57,10 @@ export const Main: React.FC = () => {
   }, [backgroundIndex]);
 
   useEffect(() => {
-    if (!quizFinished) {
+    if (quizPhase === QuizPhase.MainMenu) {
       setBackgroundIndex(Math.floor(Math.random() * backgrounds.length));
     }
-  }, [quizFinished]);
+  }, [quizPhase]);
 
   return (
     <ImageBackground
@@ -74,27 +90,34 @@ export const Main: React.FC = () => {
         </Headline>
         <MaterialIcons size={32} color={"orange"} name="star"></MaterialIcons>
       </View>
-      {!quizStarted ? (
+      {quizPhase === QuizPhase.MainMenu ? (
         <StartScreen
           onStart={() => {
-            setQuizStarted(true);
+            setQuizPhase(QuizPhase.QuestionAmountPick);
           }}
         ></StartScreen>
-      ) : !quizFinished ? (
+      ) : quizPhase === QuizPhase.QuestionAmountPick ? (
+        <QuestionAmountSelector
+          onSelect={(amount) => {
+            setQuestionAmount(amount);
+            setQuizPhase(QuizPhase.Started);
+          }}
+          options={[5, 10, 15, 20, 25]}
+        />
+      ) : quizPhase === QuizPhase.Started ? (
         <Questions
           questions={quizQuestions}
           onFinish={() => {
-            setQuizFinished(true);
+            setQuizPhase(QuizPhase.Finished);
           }}
         />
       ) : (
         <EndScreen
           onConfirm={() => {
-            setQuizFinished(false);
-            setQuizStarted(false);
+            setQuizPhase(QuizPhase.MainMenu);
             setCorrectGuesses(0);
           }}
-          totalQuestions={totalQuestions}
+          totalQuestions={actualQuestionAmount}
         />
       )}
     </ImageBackground>
