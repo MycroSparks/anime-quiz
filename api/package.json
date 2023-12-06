@@ -1,0 +1,27 @@
+{
+  "name": "api.animequiz",
+  "version": "1.0.0",
+  "description": "animequiz api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MycroSparks/anime-quiz.git"
+  },
+  "author": "mycrosparks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MycroSparks/anime-quiz/issues"
+  },
+  "homepage": "https://github.com/MycroSparks/anime-quiz#readme",
+  "dependencies": {
+    "@types/node": "^20.10.3",
+    "@types/node-fetch": "^2.6.9",
+    "fastify": "^4.24.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.2"
+  }
+}
