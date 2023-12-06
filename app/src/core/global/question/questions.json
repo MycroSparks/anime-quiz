@@ -1,0 +1,204 @@
+{
+  "questions": [
+    {
+      "question": "Who is the main character of 'One Punch Man'?",
+      "option": [
+        { "text": "Genos" },
+        { "text": "Saitama", "correct": true },
+        { "text": "Mumen Rider" },
+        { "text": "Speed-O'-Sound Sonic" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'Attack on Titan,' what is the special power of the protagonist, Eren Yeager?",
+      "option": [
+        { "text": "Super strength" },
+        { "text": "Regeneration" },
+        { "text": "Titan-shifting ability", "correct": true },
+        { "text": "Telekinesis" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the name of the demon sword that the main character wields in 'Blue Exorcist'?",
+      "option": [
+        { "text": "Kurikara", "correct": true },
+        { "text": "Tessaiga" },
+        { "text": "Excalibur" },
+        { "text": "Enchiridion" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'My Hero Academia,' what is Bakugo's superhero alias?",
+      "option": [
+        { "text": "Shoto" },
+        { "text": "Deku" },
+        { "text": "Kacchan", "correct": true },
+        { "text": "Ingenium" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'Sword Art Online,' what is the name of the first virtual reality MMORPG the players get trapped in?",
+      "option": [
+        { "text": "ALO (Alfheim Online)" },
+        { "text": "GGO (Gun Gale Online)" },
+        { "text": "SAO (Sword Art Online)", "correct": true },
+        { "text": "VRMMORPG" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Who is the alchemist known as the 'Crimson Alchemist' in 'Fullmetal Alchemist'?",
+      "option": [
+        { "text": "Roy Mustang" },
+        { "text": "Solf J. Kimblee", "correct": true },
+        { "text": "Edward Elric" },
+        { "text": "Maes Hughes" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'Death Note,' what is L's real name?",
+      "option": [
+        { "text": "Light Yagami" },
+        { "text": "Soichiro Yagami" },
+        { "text": "Ryuzaki" },
+        { "text": "L Lawliet", "correct": true }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the title of the first episode of 'Neon Genesis Evangelion'?",
+      "option": [
+        { "text": "Shinji's Awakening" },
+        { "text": "Angel Attack", "correct": true },
+        { "text": "Eva Unleashed" },
+        { "text": "Tokyo-3 Chaos" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'Cowboy Bebop,' what is the name of Spike Spiegel's former occupation?",
+      "option": [
+        { "text": "Bounty Hunter", "correct": true },
+        { "text": "Police Officer" },
+        { "text": "Space Pirate" },
+        { "text": "Chef" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the name of the magical school in 'Little Witch Academia'?",
+      "option": [
+        { "text": "Luna Nova Academy", "correct": true },
+        { "text": "Waverly Institute" },
+        { "text": "Hexen Academy" },
+        { "text": "Sorcerer's Institute" }
+      ],
+      "difficulty": "Easy"
+    },
+    {
+      "question": "In 'Naruto,' what is the name of the fourth Hokage of the Hidden Leaf Village?",
+      "option": [
+        { "text": "Tsunade" },
+        { "text": "Minato Namikaze", "correct": true },
+        { "text": "Jiraiya" },
+        { "text": "Hiruzen Sarutobi" }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "What is the name of the organization responsible for hunting witches in 'Puella Magi Madoka Magica'?",
+      "option": [
+        { "text": "Magical Girls Union" },
+        { "text": "Kyubey Corps" },
+        { "text": "Soul Gem Syndicate" },
+        { "text": "Incubators", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "In 'Attack on Titan,' what is the source of the Titans' transformation power?",
+      "option": [
+        { "text": "Eren Yeager" },
+        { "text": "The Coordinate", "correct": true },
+        { "text": "The Beast Titan" },
+        { "text": "The Wall Cult" }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "What is the title of the first arc in 'One Piece' where Luffy and his crew enter the Grand Line?",
+      "option": [
+        { "text": "East Blue Saga" },
+        { "text": "Loguetown Arc" },
+        { "text": "Alabasta Saga" },
+        { "text": "Jaya Arc", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "In 'Fullmetal Alchemist: Brotherhood,' what is the name of the secret organization that opposes the homunculi?",
+      "option": [
+        { "text": "Crimson Alchemists" },
+        { "text": "Solf's Syndicate" },
+        { "text": "The State Military" },
+        { "text": "Ishvalan Restoration", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "Who is the main antagonist in 'Code Geass: Lelouch of the Rebellion'?",
+      "option": [
+        { "text": "Suzaku Kururugi" },
+        { "text": "C.C." },
+        { "text": "Lelouch vi Britannia" },
+        { "text": "Emperor Charles zi Britannia", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "In 'Black Clover,' what is Asta's unique characteristic?",
+      "option": [
+        { "text": "Magic-canceling grimoire" },
+        { "text": "Wind magic" },
+        { "text": "Anti-magic swords", "correct": true },
+        { "text": "Fire magic" }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "What is the name of the elite high school for assassins in 'Assassination Classroom'?",
+      "option": [
+        { "text": "Hope's Peak Academy" },
+        { "text": "Yokai Academy" },
+        { "text": "Ouran High School" },
+        { "text": "Kunugigaoka Junior High School", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "In 'Serial Experiments Lain,' what is the mysterious virtual entity that connects the Wired and reality?",
+      "option": [
+        { "text": "Knights of the Eastern Calculus" },
+        { "text": "The Reapers" },
+        { "text": "The Knights Who Say Ni" },
+        { "text": "The Knights of the Eastern Calculus", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    },
+    {
+      "question": "What is the name of the legendary pirate treasure in 'One Piece' that Gol D. Roger discovered?",
+      "option": [
+        { "text": "Grand Line One Piece" },
+        { "text": "Straw Hat Treasure" },
+        { "text": "Red Line One Piece" },
+        { "text": "One Piece", "correct": true }
+      ],
+      "difficulty": "Moderate"
+    }
+  ]
+}

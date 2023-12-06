@@ -1,0 +1,4 @@
+Multiple game modes:
+
+✓ Game mode menu
+- Adjust quiz component so that it's a top component used to determine which quiz subcomponent gets rendered and provides it with the needed data

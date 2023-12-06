@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
-import { Answer } from "../core/global/question/question.constant";
+import { Option } from "../core/global/question/question.constant";
 
 interface Props {
-  answers: Answer[];
+  answers: Option[];
   onPick: (correctGuess: boolean) => void;
 }
 

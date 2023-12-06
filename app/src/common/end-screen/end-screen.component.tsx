@@ -2,20 +2,20 @@ import React from "react";
 import { View } from "react-native";
 import { Button, Headline } from "react-native-paper";
 import { useAppContext } from "../../core/app-context/app-context.hook";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../navigation/navigator.component";
 
-interface Props {
-  onConfirm: () => void;
-  totalQuestions: number;
-}
-
-export const EndScreen: React.FC<Props> = ({ onConfirm, totalQuestions }) => {
-  const { correctGuesses } = useAppContext();
+export const EndScreen: React.FC<
+  NativeStackScreenProps<RootStackParamList, "EndScreen">
+> = ({ navigation, route }) => {
+  const { setCorrectGuesses, correctGuesses } = useAppContext();
 
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 2, alignItems: "center" }}>
         <Headline style={{ textAlign: "center", fontWeight: "bold" }}>
-          You got {correctGuesses} out of {totalQuestions} questions right!
+          You got {correctGuesses} out of {route.params.totalQuestions}{" "}
+          questions right!
         </Headline>
       </View>
       <View
@@ -26,7 +26,10 @@ export const EndScreen: React.FC<Props> = ({ onConfirm, totalQuestions }) => {
       >
         <Button
           style={{ marginHorizontal: 20 }}
-          onPress={onConfirm}
+          onPress={() => {
+            setCorrectGuesses(0);
+            navigation.popToTop();
+          }}
           mode="contained"
         >
           Ok

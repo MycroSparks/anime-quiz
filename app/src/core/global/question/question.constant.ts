@@ -1,17 +1,18 @@
-export interface Answer {
+export interface Option {
   text: string;
   correct?: boolean;
+  difficulty?: "Easy" | "Medium" | "Hard";
 }
 
 export interface Question {
-  text: string;
-  answers: Answer[];
+  question: string;
+  option: Option[];
 }
 
 export const questions: Question[] = [
   {
-    text: "What does Naruto want to become?",
-    answers: [
+    question: "What does Naruto want to become?",
+    option: [
       { text: "Pirate King" },
       { text: "Wizard King" },
       { text: "Shaman King" },
@@ -19,8 +20,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: "Where does anime originate from?",
-    answers: [
+    question: "Where does anime originate from?",
+    option: [
       { text: "Japan", correct: true },
       { text: "China" },
       { text: "Pakistan" },
@@ -28,8 +29,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: "Which of these pokemon is a fire type?",
-    answers: [
+    question: "Which of these pokemon is a fire type?",
+    option: [
       { text: "Lickitung" },
       { text: "Muk" },
       { text: "Rapidash", correct: true },
@@ -37,8 +38,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: `Who is the creator of the "Jojo's Bizzare Adventure" manga?`,
-    answers: [
+    question: `Who is the creator of the "Jojo's Bizzare Adventure" manga?`,
+    option: [
       { text: "Masashi Kishimoto" },
       { text: "Hirohiko Araki", correct: true },
       { text: "Hajime Isayama" },
@@ -46,8 +47,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: "Which of these anime came out first?",
-    answers: [
+    question: "Which of these anime came out first?",
+    option: [
       { text: "Hajime no Ippo" },
       { text: "Yu Yu Hakusho" },
       { text: "Digimon Adventure" },
@@ -55,8 +56,9 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: 'Who is the main villain in the made in the movie "Made in Abyss: Dawn of the Deep Soul"?',
-    answers: [
+    question:
+      'Who is the main villain in the made in the movie "Made in Abyss: Dawn of the Deep Soul"?',
+    option: [
       {
         text: "Bondrewd",
         correct: true,
@@ -67,8 +69,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: 'What do shinigami from "Deathnote" love to eat?',
-    answers: [
+    question: 'What do shinigami from "Deathnote" love to eat?',
+    option: [
       {
         text: "Apples",
         correct: true,
@@ -79,8 +81,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: "What does Hyakkimaru from the anime Dororo recover first?",
-    answers: [
+    question: "What does Hyakkimaru from the anime Dororo recover first?",
+    option: [
       {
         text: "His skin",
         correct: true,
@@ -91,8 +93,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: `What's the english name of the anime "Mirai Nikki"?`,
-    answers: [
+    question: `What's the english name of the anime "Mirai Nikki"?`,
+    option: [
       {
         text: "Future Diary",
         correct: true,
@@ -103,8 +105,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: `Who is rank 8 on the hero leaderboard in the anime "One Punch Man"?`,
-    answers: [
+    question: `Who is rank 8 on the hero leaderboard in the anime "One Punch Man"?`,
+    option: [
       {
         text: "Zombieman",
         correct: true,
@@ -115,8 +117,8 @@ export const questions: Question[] = [
     ],
   },
   {
-    text: `What's the name of the place where the plot of the anime "Dorohedoro" takes place?`,
-    answers: [
+    question: `What's the name of the place where the plot of the anime "Dorohedoro" takes place?`,
+    option: [
       {
         text: "Hole",
         correct: true,
